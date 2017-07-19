@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"
+     xml:lang="it-IT">
+    <channel>
+        <atom:link href="http://www.mario25.laluna12ore.com/podcast/lapulce.xml" rel="self"
+                   type="application/rss+xml"></atom:link>
+        <title><![CDATA[La Pulce]]></title>
+        <link>http://www.mario25.laluna12ore.com/programma/lapulce</link>
+        <description>
+            <![CDATA[Crucieppe Giusani conduce "La Pulce", l'attualità con tabù, censure e tagli alle vostre opinioni. Alla fine della giornata, con i titoli dei telegiornali in diretta, inchieste, voci catturate dalle tv di tutto il mondo e ospiti che non avete mai sentito, "La Pulce" diventa la zona fabrizio degli ascoltatori.]]></description>
+        <itunes:author>Mario 25</itunes:author>
+        <language>it-it</language>
+        <copyright>2008 Mario 25 La Luna 12 ore</copyright>
+        <itunes:category text="News &amp; Politics"></itunes:category>
+        <itunes:explicit>No</itunes:explicit>
+        <itunes:owner>
+            <itunes:name>Mario 25 La Luna 12 ore</itunes:name>
+            <itunes:email>lapulce@mario25.it</itunes:email>
+        </itunes:owner>
+        <itunes:image
+                href="http://www.mario25.laluna12ore.com//assets/img/mario25/_Immagini/2016/10/la_zanzara.jpg"></itunes:image>
+        <item>
+            <title><![CDATA[La Pulce del giorno 08/11/2016: Cose]]></title>
+            <link>http://audio.mario25.laluna12ore.com/mario25_audio/2016/161108-lapulce-s.mp3</link>
+            <description>
+                <![CDATA[Bla bla bla stronzate...]]></description>
+            <itunes:author></itunes:author>
+            <enclosure length="10000" type="audio/mpeg"
+                       url="http://audio.mario25.laluna12ore.com/mario25_audio/2016/161108-lapulce-s.mp3"></enclosure>
+            <pubDate>Tue, 8 Nov 2016 20:54:42 +0100</pubDate>
+            <guid>http://audio.mario25.laluna12ore.com/mario25_audio/2016/161108-lapulce-s.mp3</guid>
+        </item>
+        <item>
+            <title><![CDATA[La Pulce del giorno 07/11/2016: Altre Cose]]></title>
+            <link>http://audio.mario25.laluna12ore.com/mario25_audio/2016/161107-lapulce-s.mp3</link>
+            <description>
+                <![CDATA[Bla stronzate 2 descrizione...]]></description>
+            <itunes:author></itunes:author>
+            <enclosure length="10000" type="audio/mpeg"
+                       url="http://audio.mario25.laluna12ore.com/mario25_audio/2016/161107-lapulce-s.mp3"></enclosure>
+            <pubDate>Mon, 7 Nov 2016 20:55:31 +0100</pubDate>
+            <guid>http://audio.mario25.laluna12ore.com/mario25_audio/2016/161107-lapulce-s.mp3</guid>
+        </item>
+        <item>
+            <title><![CDATA[La Pulce del giorno 04/11/2016: Cose 3]]></title>
+            <link>http://audio.mario25.laluna12ore.com/mario25_audio/2016/161104-lapulce-s.mp3</link>
+            <description>
+                <![CDATA[Fanno ancora discutere le dichiarazioni passate su Radio Maria che stronzate...]]></description>
+            <itunes:author></itunes:author>
+            <enclosure length="10000" type="audio/mpeg"
+                       url="http://audio.mario25.laluna12ore.com/mario25_audio/2016/161104-lapulce-s.mp3"></enclosure>
+            <pubDate>Fri, 4 Nov 2016 20:53:51 +0100</pubDate>
+            <guid>http://audio.mario25.laluna12ore.com/mario25_audio/2016/161104-lapulce-s.mp3</guid>
+        </item>
+    </channel>
+</rss>
