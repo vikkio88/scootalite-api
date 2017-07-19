@@ -14,8 +14,9 @@ class M1478449937Podcasts implements DbHelperInterface
         Capsule::schema()->dropIfExists($tableName);
         Capsule::schema()->create($tableName, function (Blueprint $table) {
             $table->increments('id');
+            $table->string('slug')->index()->unique();
             $table->string('name');
-            $table->string('description', 150)->nullable();
+            $table->longText('description', 150)->nullable();
             $table->string('duration', 20)->nullable();
             $table->dateTime('date')->nullable();
             $table->integer('show_id')->index()->unsigned()->nullable();

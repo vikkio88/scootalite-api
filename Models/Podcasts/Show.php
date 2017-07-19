@@ -33,21 +33,11 @@ class Show extends SlimeModel
         'explicit' => 'boolean'
     ];
 
-    public function radio()
-    {
-        return $this->belongsTo(Radio::class);
-    }
-
     public function podcasts()
     {
         return $this->hasMany(Podcast::class)
             ->orderBy('date', 'DESC')
             ->limit(10);
-    }
-
-    public function categories()
-    {
-        return $this->belongsToMany(Category::class, 'radio_show_categories');
     }
 
     public function language()
@@ -58,8 +48,6 @@ class Show extends SlimeModel
     public function scopeInfo($query)
     {
         return $query->with(
-            'radio',
-            'categories',
             'podcasts',
             'language'
         );

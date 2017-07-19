@@ -8,15 +8,15 @@ class Podcast extends SlimeModel
 {
     protected $fillable = [
         'name',
+        'slug',
         'description',
         'duration',
         'date',
         'file_url',
-        'radio_show_id',
+        'show_id',
         'previous_podcast_id',
         'next_podcast_id',
     ];
-
 
     public function next()
     {

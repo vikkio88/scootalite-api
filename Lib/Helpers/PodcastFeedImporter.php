@@ -26,6 +26,7 @@ class PodcastFeedImporter
     /**
      * PodcastFeedImporter constructor.
      * @param array $parsedResult
+     * @param null $feedUrl
      * @throws InvalidFeedFormatException
      */
     public function __construct(array $parsedResult, $feedUrl = null)
@@ -67,6 +68,7 @@ class PodcastFeedImporter
             $radioShow->author = $this->getAttributeFromFeed('itunes:author');
             $radioShow->website = $this->getAttributeFromFeed('link');
             $radioShow->explicit = strtolower($this->getAttributeFromFeed('itunes:explicit')) === "yes" ? true : false;
+            $radioShow->slug = str_slug($radioShow->name);
             $image = $this->getAttributeFromFeed('itunes:image');
             $image = isset($image['@attributes']['href']) ? $image['@attributes']['href'] : null;
             $radioShow->logo_url = $image;
@@ -92,6 +94,7 @@ class PodcastFeedImporter
             $items = $this->getAttributeFromFeed('item');
             foreach ($items as $item) {
                 $podcast = $this->getPodcastFromFeedItem($item);
+                $podcast->slug = str_slug($this->getAttributeFromFeed('title') . $podcast->date . '-' . str_random(5));
                 if ($latestPodcast !== null && $podcast->file_url == $latestPodcast->file_url) {
                     $latestPodcast->fill($podcast->toArray());
                     $this->podcasts[] = $latestPodcast;

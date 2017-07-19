@@ -1,8 +1,11 @@
 <?php
 
+use App\Actions\Podcast\ShowGetAll;
 use App\Actions\Podcast\ShowGetOneBySlug;
 use App\Actions\Podcast\ShowGetPodcasts;
 use App\Actions\Podcast\ParseFromFeedUrl;
+
+$api->get('/shows', ShowGetAll::class);
 
 $api->post('/shows/parse', ParseFromFeedUrl::class);
 

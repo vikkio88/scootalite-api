@@ -5,20 +5,17 @@ namespace App\Actions\Podcast;
 
 use App\Lib\Slime\RestAction\ApiAction;
 use App\Lib\Slime\RestAction\Traits\Pagination;
-use App\Models\Podcasts\Podcast;
+use App\Models\Podcasts\Show;
 
-class ShowGetPodcasts extends ApiAction
+class ShowGetAll extends ApiAction
 {
     use Pagination;
 
     protected function performAction()
     {
         $this->pagination = $this->getPaginationParams($this->request);
-        $this->payload = Podcast::complete()
-            ->where(
-                'show_id',
-                $this->args['showId']
-            )->orderBy('created_at', 'DESC')
+        $this->payload = Show::info()
+            ->orderBy('created_at', 'DESC')
             ->page($this->pagination)->get();;
 
 
