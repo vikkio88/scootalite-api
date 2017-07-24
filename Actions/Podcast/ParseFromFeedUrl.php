@@ -22,7 +22,7 @@ class ParseFromFeedUrl extends ApiAction
         $this->show = Show::info()->where(['feed_url' => $feedUrl])->first();
 
         if (!empty($this->show) && $this->show->updated_at->diffInHours(Carbon::now()) > 8) {
-            dd($this->show->updated_at->diffInDays(Carbon::now()) > 1);
+            //dd($this->show->updated_at->diffInDays(Carbon::now()) > 1);
             return;
         }
 
