@@ -14,7 +14,7 @@ class M1478449930Shows implements DbHelperInterface
         Capsule::schema()->dropIfExists($tableName);
         Capsule::schema()->create($tableName, function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 150);
+            $table->string('name');
             $table->string('slug')->index()->unique();
             $table->longText('description')->nullable();
             $table->string('author')->nullable();
@@ -23,7 +23,7 @@ class M1478449930Shows implements DbHelperInterface
             $table->string('website')->nullable();
             $table->string('feed_url')->index();
             $table->string('logo_url')->nullable();
-            $table->integer('frequency_id')->unsigned()->nullable();
+            $table->smallInteger('valid_for')->default(12);
             $table->timestamps();
         });
     }
