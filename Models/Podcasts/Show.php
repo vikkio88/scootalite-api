@@ -38,7 +38,7 @@ class Show extends SlimeModel
 
     public function expired()
     {
-        return $this->updated_at->diffInHours(Carbon::now()) < $this->valid_for;
+        return $this->updated_at->diffInHours(Carbon::now()) > $this->valid_for;
     }
 
     public static function upsertFromFeed($feedUrl)
@@ -65,6 +65,7 @@ class Show extends SlimeModel
         $parsedPodcasts = $feed->getPodcastsInfo();
         $podcasts = [];
         foreach ($parsedPodcasts as $podcast) {
+
             $podcast = Podcast::updateOrCreate(
                 array_merge(
                     ['show_id' => $show->id],
