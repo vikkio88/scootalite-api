@@ -63,8 +63,8 @@ class PodcastFeedImporter
     {
         if (empty($this->radioShow)) {
             $radioShow = new Show();
-            $radioShow->name = $this->getAttributeFromFeed('title');
-            $radioShow->description = $this->getAttributeFromFeed('description');
+            $radioShow->name = strip_tags($this->getAttributeFromFeed('title'));
+            $radioShow->description = strip_tags($this->getAttributeFromFeed('description'));
             $radioShow->author = $this->getAttributeFromFeed('itunes:author');
             $radioShow->website = $this->getAttributeFromFeed('link');
             $radioShow->explicit = strtolower($this->getAttributeFromFeed('itunes:explicit')) === "yes" ? true : false;
@@ -110,8 +110,8 @@ class PodcastFeedImporter
     private function getPodcastFromFeedItem(array $item)
     {
         $podcast = new Podcast();
-        $podcast->name = $this->getOrNull($item, 'title');
-        $podcast->description = $this->getOrNull($item, 'description');
+        $podcast->name = strip_tags($this->getOrNull($item, 'title'));
+        $podcast->description = strip_tags($this->getOrNull($item, 'description'));
         $podcast->duration = $this->getOrNull($item, 'itunes:duration');
         $podcast->file_url = $this->getAttrValFromTag($item, 'enclosure', 'url');
         $podcast->date = new Carbon($this->getOrNull($item, 'pubDate'));

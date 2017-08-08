@@ -65,13 +65,18 @@ class Show extends SlimeModel
         $parsedPodcasts = $feed->getPodcastsInfo();
         $podcasts = [];
         foreach ($parsedPodcasts as $podcast) {
-
+            $podcastData = $podcast->toArray();
             $podcast = Podcast::updateOrCreate(
+                [
+                    'show_id' => $show->id,
+                    'file_url' => $podcastData['file_url']
+                ],
                 array_merge(
                     ['show_id' => $show->id],
-                    $podcast->toArray()
+                    $podcastData
                 )
             );
+
             $podcasts[] = $podcast;
         }
         $show->podcasts = $podcasts;
