@@ -9,7 +9,7 @@ class ShowGetOneBySlug extends ApiAction
 {
     protected function performAction()
     {
-        $this->payload = Show::info()
+        $this->payload = Show::complete()
             ->where('slug', $this->args['slug'])
             ->first();
     }

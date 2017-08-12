@@ -13,7 +13,7 @@ class ShowGetTrends extends ApiAction
     protected function performAction()
     {
         $this->pagination = $this->getPaginationParams($this->request);
-        $this->payload = Show::with('language')
+        $this->payload = Show::info()
             ->page($this->pagination)
             ->orderBy('updated_at', 'DESC')
             ->get();

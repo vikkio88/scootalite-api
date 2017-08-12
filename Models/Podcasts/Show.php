@@ -99,6 +99,13 @@ class Show extends SlimeModel
     public function scopeInfo($query)
     {
         return $query->with(
+            'language'
+        );
+    }
+
+    public function scopeComplete($query)
+    {
+        return $query->with(
             'podcasts',
             'language'
         );
