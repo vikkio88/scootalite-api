@@ -27,7 +27,6 @@ class Show extends SlimeModel
 
     protected $hidden = [
         'created_at',
-        'updated_at',
         'pivot',
         'language_id'
     ];
