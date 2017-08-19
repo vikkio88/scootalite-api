@@ -90,6 +90,11 @@ class Show extends SlimeModel
             ->limit(10);
     }
 
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'show_categories');
+    }
+
     public function language()
     {
         return $this->belongsTo(Language::class);
@@ -98,7 +103,8 @@ class Show extends SlimeModel
     public function scopeInfo($query)
     {
         return $query->with(
-            'language'
+            'language',
+            'categories'
         );
     }
 
@@ -106,7 +112,8 @@ class Show extends SlimeModel
     {
         return $query->with(
             'podcasts',
-            'language'
+            'language',
+            'categories'
         );
     }
 }
