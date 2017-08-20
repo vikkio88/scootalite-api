@@ -2,4 +2,4 @@
 
 use App\Actions\Podcast\PodcastGetOne;
 
-$api->get('/podcasts/{id}', PodcastGetOne::class);
+$api->get('/podcasts/{slug}', PodcastGetOne::class);

@@ -13,8 +13,8 @@ class PodcastGetOne extends ApiAction
     {
         $this->payload = Podcast::complete()
             ->where(
-                'id',
-                $this->args['id']
+                'slug',
+                $this->args['slug']
             )->first();
     }
 }
