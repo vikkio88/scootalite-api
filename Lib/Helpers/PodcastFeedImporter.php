@@ -114,7 +114,7 @@ class PodcastFeedImporter
         $podcast->description = strip_tags($this->getOrNull($item, 'description'));
         $podcast->duration = $this->getOrNull($item, 'itunes:duration');
         $podcast->file_url = $this->getAttrValFromTag($item, 'enclosure', 'url');
-        $podcast->date = new Carbon($this->getOrNull($item, 'pubDate'));
+        $podcast->date = (new Carbon($this->getOrNull($item, 'pubDate')))->format('Y-m-d H:s');
         return $podcast;
     }
 

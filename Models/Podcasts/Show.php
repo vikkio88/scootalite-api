@@ -43,7 +43,7 @@ class Show extends SlimeModel
     public static function upsertFromFeed($feedUrl)
     {
         //check if show is there with feed url
-        $show = self::info()->where(['feed_url' => $feedUrl])->first();
+        $show = self::complete()->where(['feed_url' => $feedUrl])->first();
 
         if (!empty($show) && !$show->expired()) {
             return $show;
@@ -59,7 +59,15 @@ class Show extends SlimeModel
         $feed = new PodcastFeedImporter($parsed, $feedUrl);
         $show = $feed->getShowInfo()->toArray();
         //check if show is there
-        $show = Show::updateOrCreate($show);
+        $show = Show::updateOrCreate(
+            ['feed_url' => $feedUrl],
+            array_merge(
+                [
+                    'updated_at' => Carbon::now()
+                ],
+                $show
+            )
+        );
         //check when was updated and update podcasts
         $parsedPodcasts = $feed->getPodcastsInfo();
         $podcasts = [];
