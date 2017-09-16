@@ -22,7 +22,8 @@ class Show extends SlimeModel
         'website',
         'feed_url',
         'logo_url',
-        'frequency_id'
+        'frequency_id',
+        'updated_at'
     ];
 
     protected $hidden = [
