@@ -15,9 +15,7 @@ class ShowGetAll extends ApiAction
     {
         $this->pagination = $this->getPaginationParams($this->request);
         $this->payload = Show::info()
-            ->orderBy('created_at', 'DESC')
-            ->page($this->pagination)->get();;
-
-
+            ->orderBy('updated_at', 'DESC')
+            ->page($this->pagination)->get();
     }
 }
