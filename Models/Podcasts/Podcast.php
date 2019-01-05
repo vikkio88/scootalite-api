@@ -18,6 +18,28 @@ class Podcast extends SlimeModel
         'next_podcast_id',
     ];
 
+    public static function upsert($showId, $podcastData)
+    {
+        $podcast = Podcast::where([
+            'show_id' => $showId,
+            'file_url' => $podcastData['file_url']
+        ])->first();
+
+        if (!$podcast) {
+            $podcast = Podcast::create(array_merge(
+                ['show_id' => $showId],
+                $podcastData
+            ));
+        } else {
+            $originalSlug = $podcast->slug;
+            $podcast->fill($podcastData);
+            $podcast->slug = $originalSlug;
+            $podcast->save();
+        }
+
+        return $podcast;
+    }
+
     public function next()
     {
         return $this->hasOne(
